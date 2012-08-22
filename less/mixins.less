@@ -1,0 +1,72 @@
+// Parametric Mixins
+
+// Clearfix
+// --------
+// For clearing floats like a boss h5bp.com/q
+.lessClearfix() {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    // Fixes Opera/contenteditable bug:
+    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// Sizing shortcuts
+// -------------------------
+.lessSize(@height, @width) {
+  width: @width;
+  height: @height;
+}
+.lessSquare(@size) {
+  .size(@size, @size);
+}
+
+// Text overflow
+// -------------------------
+// Requires inline-block or block for proper styling
+.textOverflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 字体
+// TODO: 可以传递更多参数
+.lessFont() {
+  // 微软雅黑字体
+  .yahei() {
+    font-family:Microsoft YaHei,SimSun;
+  }
+  .yaheiFont(@val) {
+    font:@val Microsoft YaHei,SimSun;
+  }
+
+  // 人民币符号
+  .rmb() {
+    font-family:arial,verdana;
+    .num {
+      font-family:verdana,arial;
+    }
+  }
+  .rmbFontSameSize(@val) {
+    font:@val arial,verdana;
+    .num {
+      font:@val verdana,arial;
+    }
+  }
+  .rmbFontDiffSize(@val-icon, @val-num) {
+    font:@val-icon arial,verdana;
+    .num {
+      font:@val-num verdana,arial;
+    }
+  }
+}
+
+// 
